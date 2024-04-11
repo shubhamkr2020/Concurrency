@@ -1,5 +1,8 @@
 
 1. CRON-queue like service
-2. bounded blocking queue with producer consumer approach
-3. time scheduler
-4. 
+2. bounded blocking queue with producer consumer approach +1
+3. time delayed scheduler, execute given task with a timeout, once timeout is reached execute tasks in parallel with threadpool. +1
+4. producer consumer problem with shutdown mechanism +1
+5. concurrent hashmap +1
+6. Timer class in java
+7. 
