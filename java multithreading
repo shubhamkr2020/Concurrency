@@ -1,0 +1,75 @@
+1. Main thread can start multiple threads.
+2. If there are no user threads are running then only the program will end.
+3. If there are demon thread running and no user thread, then JVM decides if we need end the program.
+
+3. Two ways to create new threads in Java:
+
+  1. extends Thread
+    ex:
+      class Thread1 extends Thread {
+        @Override
+        public void run() {
+          // do something
+        }
+      }
+  
+      Thread thread1 = new Thread("name");
+      thread1.start();
+
+
+  2. implements Runnable
+    ex:
+      class Thread2 implements Runnable {
+        @Override
+        public void run() {
+          // do something
+        }
+      }
+  
+      Thread thread2 = new Thread(new Thread2(), "name");
+      thread2.start();  
+
+4. synchronized(lock) keyword to lock the critical section of the code
+5. It takes a parameter which can be any Object type in java.
+6. or directly use synchronized in the function definition to make the whole method synchronized (implicitly using lock on 'this' object).
+7. when a thread needs to wait just call the lock.wait() method.
+
+8. wait(), notify() and notifyall() are methods defined for every object in Java so that we can use them as lock objects. 
+9. These methods throws InterruptedExceptions, handle the exception properly in the code.
+
+10. State of Threads:
+  1. New Thread
+  2. Ready to Run state
+  3. Running
+  4. Dead/Finished
+  5. From Running it can go to a Waiting state, 
+      waiting state can go to a acquire lock state when it gets a notify signal. 
+      when it gets the lock after notify then it goes a running state again
+  6. Thread.sleep -> sleeping state for some time but does not release the block
+      lock will only be released by wait() call on the lock and will be acquired by some waiting thread which will be notified
+
+11. Thread.States enum:
+  1. NEW - when it is created
+  2. RUNNABLE - when it is running
+  3. BLOCKED - when it is blocked to acquire a lock which is with someone else
+  4. WAITING - when it is waiting to get the notify call
+  5. TIMED_WAITING - Sleeping state for some time
+  6. DEAD - terminated state, it cannot go to other states now.
+
+12. yield() method -> moves back a running thread to ready to run state. but depends on the JVM, not sure.
+
+13. sleep() method -> it will make the running thread sleep for a specified amount of time and 
+    when the time is passed it will again go to ready to run state but if there is any other thread which interrupted it then it throws exception.
+      same for wait() method, throws exception when it comes to ready to run state.
+14. wait() method can also take time for timeout.
+
+15. join() method -> called on any thread will block other threads where ever called.
+
+16. Thread priority:
+  1. by default 5 = NORM_PRIORITY but can be from [1, 10], Thread.MAX_PRIORITY, Thread.MIN_PRIORITY, Thread.NORM_PRIORITY.
+  2. getPriority(), setPriority() -> just an advice but no guarantee so do not rely on it.
+
+17. Thread scheduling depends on the JVM and is unpredictable but one of the
+    1. Round robin
+    2. preemptive scheduling
+   

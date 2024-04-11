@@ -1,9 +1,0 @@
-1. Main thread can start multiple threads
-2. If there are no user threads are running then only the program will end.
-
-3. Two ways to create new threads in Java:
-
-  1. extends Thread
-
-    ex:
-        
