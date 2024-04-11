@@ -72,4 +72,11 @@
 17. Thread scheduling depends on the JVM and is unpredictable but one of the
     1. Round robin
     2. preemptive scheduling
-   
+
+18. Thread pool and executor service: https://www.geeksforgeeks.org/thread-pools-java/?ref=ml_lbp
+  1. Optimal performance for any process is at maximum n or n+1 threads where n is the number of processors in the system.
+  2. Threadpool is a pool of threads precreated to handle the request in an executor service.
+  3. we already have the threads and we simply pass the requests to executor service and then
+      it will take care of handling the requests using the fixed size of thread pool.
+  4. this can reach to deadlock if the dependent task is in the runnning state and the parent is still in the queeu waiting for its turn.
+  5. 
