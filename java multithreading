@@ -29,6 +29,9 @@
       Thread thread2 = new Thread(new Thread2(), "name");
       thread2.start();  
 
+    OR
+      Thread thread2 = new Thread(() -> {// do something as lambda and it will become the run method of the runnable}, "name");
+
 4. synchronized(lock) keyword to lock the critical section of the code
 5. It takes a parameter which can be any Object type in java.
 6. or directly use synchronized in the function definition to make the whole method synchronized (implicitly using lock on 'this' object).
