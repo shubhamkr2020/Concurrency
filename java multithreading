@@ -13,7 +13,7 @@
         }
       }
   
-      Thread thread1 = new Thread("name");
+      Thread thread1 = new Thread1("name");
       thread1.start();
 
 
