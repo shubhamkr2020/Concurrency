@@ -48,7 +48,7 @@
   5. From Running it can go to a Waiting state, 
       waiting state can go to a acquire lock state when it gets a notify signal. 
       when it gets the lock after notify then it goes a running state again
-  6. Thread.sleep -> sleeping state for some time but does not release the block
+  6. Thread.sleep -> sleeping state for some time but does not release the lock
       lock will only be released by wait() call on the lock and will be acquired by some waiting thread which will be notified
 
 11. Thread.States enum:
